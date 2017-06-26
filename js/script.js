@@ -15,6 +15,7 @@ function gBackgroundColors () {
 function gTextColors () {
   text = colors[Math.floor(Math.random() * 7)]
   document.querySelector('h1').style.color = text
+  document.querySelector('h1').textContent = text
   return text
 }
 
