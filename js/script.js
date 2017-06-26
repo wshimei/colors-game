@@ -1,6 +1,7 @@
 var startButton = document.querySelector('#start')
 var colors = ['salmon', 'lightpink', 'coral', 'plum', 'mediumslateblue', 'palegreen', 'aquamarine']
 var background = ''
+var textColor = ''
 var text = ''
 var point = 0
 
@@ -13,8 +14,13 @@ function gBackgroundColors () {
 }
 
 function gTextColors () {
+  textColor = colors[Math.floor(Math.random() * 7)]
+  document.querySelector('h1').style.color = textColor
+  return textColor
+}
+
+function gText () {
   text = colors[Math.floor(Math.random() * 7)]
-  document.querySelector('h1').style.color = text
   document.querySelector('h1').textContent = text
   return text
 }
@@ -34,10 +40,11 @@ function gamestart () {
 
   setInterval(gBackgroundColors, 1000)
   setInterval(gTextColors, 1000)
+  setInterval(gText, 1000)
 }
 
 function checkMatch () {
-  if (background === text) {
+  if (background === textColor) {
     point += 1
   } else {
     point -= 1
